@@ -37,6 +37,30 @@ nnoremap <Space>gb :<C-u>Git branch<Enter>
 "nnoremap <Space>gN :<C-u>Git now --rebase<Enter>
 " }}}
 
+" unite{{{
+"" neocomplcacheとの連携
+imap <C-k> <Plug>(neocomplcache_start_unite_complete)
+nnoremap <silent> <S-q> :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <S-r> :<C-u>Unite -start-insert file_rec file_mru<CR>
+
+" ファイルのアウトラインを表示
+NeoBundle 'h1mesuke/unite-outline.git'
+nnoremap <silent> <C-o> :<C-u>Unite -vertical outline<CR>
+
+" command, search, yank の履歴を表示
+NeoBundle 'thinca/vim-unite-history.git'
+noremap <C-y><C-p> :Unite -buffer-name=register register<CR>
+let g:unite_source_history_yank_enable=1
+nnoremap <C-h> :<C-u>Unite history/
+
+" unite-grep
+NeoBundle 'Sixeight/unite-grep.git'
+
+" unite-help
+NeoBundle 'tsukkee/unite-help.git'
+"}}}
+
+
 " Required:
 filetype plugin indent on
 
