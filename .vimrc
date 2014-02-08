@@ -13,9 +13,72 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here: 
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+
+" 予測変換してくれる
+NeoBundle 'Shougo/neocomplcache'
+" neocomplcacheをデフォルトで有効化
+let g:neocomplcache_enable_at_startup=1
+
+" git管理
+NeoBundle 'tpope/vim-fugitive'
+" fugitive用の設定 {{{
+nnoremap <Space>gd :<C-u>Gdiff<Enter>
+nnoremap <Space>gs :<C-u>Gstatus<Enter>
+nnoremap <Space>ga :<C-u>Gwrite<Enter>
+nnoremap <Space>gc :<C-u>Git checkout<Enter>
+nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+nnoremap <Space>gB :<C-u>Gblame<Enter>
+nnoremap <Space>gb :<C-u>Git branch<Enter>
+"Git now 導入まで待
+"nnoremap <Space>gn :<C-u>Git now %<Enter>
+"nnoremap <Space>gN :<C-u>Git now --rebase<Enter>
+" }}}
+
 " Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+"文法
+"syntaxに応じて色付け
+syntax on
+"行番号を表示
+set number
+"列番号を表示
+set ruler
+"閉じ括弧が入力されたとき、対応する括弧を表示する
+set showmatch
+"検索時に大文字を含んでいたら大/小を区別
+set smartcase
+"新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+"タブの代わりに空白文字を挿入する
+set expandtab
+"シフト移動幅
+set shiftwidth=2
+"行頭の余白内でTabを撃ちこむと、'shiftwidth'の数だけインデントを行う
+set smarttab
+"補完候補を表示
+set wildmenu
+"現在のモードを表示
+set showmode
+"入力中のコマンドを表示
+set showcmd
+"コマンドライン保管をシェルっぽく
+set wildmode=longest:full
+"カーソル移動時の上下の余白
+set scrolloff=5
+"オムニ補完
+set omnifunc=syntaxcomplete#Complete
+"filetype plugin indent on
+"swapファイルを作成しない
+set noswapfile
+
+"範囲選択してタブ移動
+vnoremap <tab> >gv
+vnoremap <S-tab> <gv
