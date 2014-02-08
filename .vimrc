@@ -60,6 +60,14 @@ NeoBundle 'Sixeight/unite-grep.git'
 NeoBundle 'tsukkee/unite-help.git'
 "}}}
 
+" vimfiler{{{
+NeoBundle 'Shougo/vimfiler'
+" vimfilerをデフォルトのfilerにする
+let g:vimfiler_as_default_explorer=1
+autocmd! FileType vimfiler call <Plug>(vimfiler_switch_to_history_directory)
+" NERDTree風vimfiler
+nnoremap <silent> vf :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<CR>
+"}}}
 
 " Required:
 filetype plugin indent on
