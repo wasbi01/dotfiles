@@ -154,3 +154,6 @@ precmd () {
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)%~"
+
+# alias
+alias ls='ls -al'
