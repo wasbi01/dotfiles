@@ -1,0 +1,9 @@
+## rbenv install
+#  cd
+#  git clone git://github.com/sstephenson/rbenv.git .rbenv
+#  mkdir -p ~/.rbenv/plugins
+#  cd ~/.rbenv/plugins
+#  git clone git://github.com/sstephenson/ruby-build.git
+#source ~/.zsh_profile
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
